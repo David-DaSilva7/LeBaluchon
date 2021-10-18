@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C81C75B826A073A80068A906 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C75B726A073A80068A906 /* AppDelegate.swift */; };
-		C81C75BA26A073A80068A906 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C75B926A073A80068A906 /* SceneDelegate.swift */; };
-		C81C75BC26A073A80068A906 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C75BB26A073A80068A906 /* ViewController.swift */; };
 		C81C75BF26A073A80068A906 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81C75BD26A073A80068A906 /* Main.storyboard */; };
 		C81C75C126A073AA0068A906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C81C75C026A073AA0068A906 /* Assets.xcassets */; };
 		C81C75C426A073AA0068A906 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81C75C226A073AA0068A906 /* LaunchScreen.storyboard */; };
+		C81C75DE26A172120068A906 /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C75DD26A172120068A906 /* ExchangeRateViewController.swift */; };
+		C81C75E226A1721F0068A906 /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C75E126A1721F0068A906 /* TranslatorViewController.swift */; };
+		C81C75E526A1722C0068A906 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C75E426A1722C0068A906 /* WeatherViewController.swift */; };
+		C8B3988126CD24010009D520 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B3988026CD24010009D520 /* ExchangeRate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C81C75B426A073A80068A906 /* LeBaluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeBaluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81C75B726A073A80068A906 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C81C75B926A073A80068A906 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C81C75BB26A073A80068A906 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C81C75BE26A073A80068A906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C81C75C026A073AA0068A906 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C81C75C326A073AA0068A906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C81C75C526A073AA0068A906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C81C75DD26A172120068A906 /* ExchangeRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateViewController.swift; sourceTree = "<group>"; };
+		C81C75E126A1721F0068A906 /* TranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewController.swift; sourceTree = "<group>"; };
+		C81C75E426A1722C0068A906 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		C8B3988026CD24010009D520 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +64,6 @@
 				C81C75CE26A0749A0068A906 /* Model */,
 				C81C75CD26A074930068A906 /* View */,
 				C81C75CC26A0748A0068A906 /* Controller */,
-				C81C75C026A073AA0068A906 /* Assets.xcassets */,
 				C81C75C526A073AA0068A906 /* Info.plist */,
 			);
 			path = LeBaluchon;
@@ -69,7 +72,9 @@
 		C81C75CC26A0748A0068A906 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C81C75BB26A073A80068A906 /* ViewController.swift */,
+				C81C75DD26A172120068A906 /* ExchangeRateViewController.swift */,
+				C81C75E126A1721F0068A906 /* TranslatorViewController.swift */,
+				C81C75E426A1722C0068A906 /* WeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -86,6 +91,7 @@
 		C81C75CE26A0749A0068A906 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C8B3988026CD24010009D520 /* ExchangeRate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -94,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				C81C75B726A073A80068A906 /* AppDelegate.swift */,
-				C81C75B926A073A80068A906 /* SceneDelegate.swift */,
+				C81C75C026A073AA0068A906 /* Assets.xcassets */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -169,9 +175,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C81C75BC26A073A80068A906 /* ViewController.swift in Sources */,
+				C81C75E526A1722C0068A906 /* WeatherViewController.swift in Sources */,
 				C81C75B826A073A80068A906 /* AppDelegate.swift in Sources */,
-				C81C75BA26A073A80068A906 /* SceneDelegate.swift in Sources */,
+				C81C75DE26A172120068A906 /* ExchangeRateViewController.swift in Sources */,
+				C8B3988126CD24010009D520 /* ExchangeRate.swift in Sources */,
+				C81C75E226A1721F0068A906 /* TranslatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -303,7 +311,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

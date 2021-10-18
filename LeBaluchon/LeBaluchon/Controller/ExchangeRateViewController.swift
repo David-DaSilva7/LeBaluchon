@@ -1,19 +1,17 @@
 //
-//  ViewController.swift
+//  ExchangeRateViewController.swift
 //  LeBaluchon
 //
-//  Created by David Da Silva on 15/07/2021.
+//  Created by David Da Silva on 16/07/2021.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ExchangeRateViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
-
 }
-
