@@ -14,7 +14,11 @@
 		C81C75DE26A172120068A906 /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C75DD26A172120068A906 /* ExchangeRateViewController.swift */; };
 		C81C75E226A1721F0068A906 /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C75E126A1721F0068A906 /* TranslatorViewController.swift */; };
 		C81C75E526A1722C0068A906 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C75E426A1722C0068A906 /* WeatherViewController.swift */; };
-		C8B3988126CD24010009D520 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B3988026CD24010009D520 /* ExchangeRate.swift */; };
+		C8B0B2A5271D7217004B5EC6 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0B2A4271D7217004B5EC6 /* APIKeys.swift */; };
+		C8B0B2A8271D7366004B5EC6 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0B2A7271D7366004B5EC6 /* ExchangeRate.swift */; };
+		C8B0B2AD2726A9F0004B5EC6 /* ServicesURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0B2AC2726A9F0004B5EC6 /* ServicesURL.swift */; };
+		C8B0B2B32727104D004B5EC6 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0B2B22727104D004B5EC6 /* Alert.swift */; };
+		C8B3988126CD24010009D520 /* ExchangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B3988026CD24010009D520 /* ExchangeRateService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +31,11 @@
 		C81C75DD26A172120068A906 /* ExchangeRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateViewController.swift; sourceTree = "<group>"; };
 		C81C75E126A1721F0068A906 /* TranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewController.swift; sourceTree = "<group>"; };
 		C81C75E426A1722C0068A906 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		C8B3988026CD24010009D520 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		C8B0B2A4271D7217004B5EC6 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		C8B0B2A7271D7366004B5EC6 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		C8B0B2AC2726A9F0004B5EC6 /* ServicesURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesURL.swift; sourceTree = "<group>"; };
+		C8B0B2B22727104D004B5EC6 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		C8B3988026CD24010009D520 /* ExchangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 		C81C75B626A073A80068A906 /* LeBaluchon */ = {
 			isa = PBXGroup;
 			children = (
+				C8B0B2B127271030004B5EC6 /* Extension */,
 				C81C75CF26A074A40068A906 /* Supporting files */,
 				C81C75CE26A0749A0068A906 /* Model */,
 				C81C75CD26A074930068A906 /* View */,
@@ -91,7 +100,9 @@
 		C81C75CE26A0749A0068A906 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C8B3988026CD24010009D520 /* ExchangeRate.swift */,
+				C8B3988026CD24010009D520 /* ExchangeRateService.swift */,
+				C8B0B2A7271D7366004B5EC6 /* ExchangeRate.swift */,
+				C8B0B2AC2726A9F0004B5EC6 /* ServicesURL.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,8 +112,17 @@
 			children = (
 				C81C75B726A073A80068A906 /* AppDelegate.swift */,
 				C81C75C026A073AA0068A906 /* Assets.xcassets */,
+				C8B0B2A4271D7217004B5EC6 /* APIKeys.swift */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		C8B0B2B127271030004B5EC6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C8B0B2B22727104D004B5EC6 /* Alert.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,10 +195,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8B0B2B32727104D004B5EC6 /* Alert.swift in Sources */,
+				C8B0B2A5271D7217004B5EC6 /* APIKeys.swift in Sources */,
 				C81C75E526A1722C0068A906 /* WeatherViewController.swift in Sources */,
 				C81C75B826A073A80068A906 /* AppDelegate.swift in Sources */,
+				C8B0B2AD2726A9F0004B5EC6 /* ServicesURL.swift in Sources */,
 				C81C75DE26A172120068A906 /* ExchangeRateViewController.swift in Sources */,
-				C8B3988126CD24010009D520 /* ExchangeRate.swift in Sources */,
+				C8B3988126CD24010009D520 /* ExchangeRateService.swift in Sources */,
+				C8B0B2A8271D7366004B5EC6 /* ExchangeRate.swift in Sources */,
 				C81C75E226A1721F0068A906 /* TranslatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
