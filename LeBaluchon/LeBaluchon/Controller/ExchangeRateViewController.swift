@@ -58,6 +58,31 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+
+
+
+//    func textField(_ textField: UITextField,
+//                   shouldChangeCharactersIn range: NSRange,
+//                   replacementString string: String) -> Bool {
+//        // Limit the textfield entry to two decimal
+//        guard let oldText = textField.text, let range = Range(range, in: oldText) else {
+//            return true
+//        }
+//
+//        let newText = oldText.replacingCharacters(in: range, with: string)
+//        let isNumeric = newText.isEmpty || (Double(newText) != nil)
+//        let numberOfDots = newText.components(separatedBy: ".").count - 1
+//
+//        let numberOfDecimalDigits: Int
+//        if let dotIndex = newText.firstIndex(of: ".") {
+//            numberOfDecimalDigits = newText.distance(from: dotIndex, to: newText.endIndex) - 1
+//        } else {
+//            numberOfDecimalDigits = 0
+//        }
+//
+//        return isNumeric && numberOfDots <= 1 && numberOfDecimalDigits <= 2
+//    }
+
 }
 
 
