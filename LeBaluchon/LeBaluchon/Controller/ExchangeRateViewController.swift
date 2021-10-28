@@ -7,12 +7,13 @@
 
 import UIKit
 
-class ExchangeRateViewController: UIViewController {
+class ExchangeRateViewController: UIViewController, UITextFieldDelegate{
     
     // MARK: - Outlets
     @IBOutlet weak var textFieldEuro: UITextField!
     @IBOutlet weak var labelUSD: UILabel!
     @IBOutlet weak var buttonConvertir: UIButton!
+   
     
     override func viewDidLoad() {
             super.viewDidLoad()
@@ -45,6 +46,17 @@ class ExchangeRateViewController: UIViewController {
             self.presentAlert(title: "Petit problème",
                               message: "Fixer n'a pas pu récupérer le taux de change.\nVeuillez réessayer.")
         }
+    }
+    
+    
+
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textFieldEuro.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
