@@ -44,7 +44,7 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate{
             callExchangeRateService(amount: Decimal(string: amountToExchange)!)
         } else {
             self.presentAlert(title: "Petit problème",
-                              message: "Fixer n'a pas pu récupérer le taux de change.\nVeuillez réessayer.")
+                              message: "Veuillez rentrer un montant valable avant de le convertir !")
         }
     }
     
