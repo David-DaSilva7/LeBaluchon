@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ddu-5t-ugP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ddu-5t-ugP">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sd-wZ-lOt">
-                                <rect key="frame" x="16" y="376" width="358" height="127"/>
+                                <rect key="frame" x="16" y="426" width="358" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
@@ -45,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anglais" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxi-C6-SHe">
-                                <rect key="frame" x="141" y="311" width="109" height="57"/>
+                                <rect key="frame" x="141" y="350" width="109" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -60,11 +60,25 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvg-xd-xX9">
+                                <rect key="frame" x="29" y="297" width="68" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Switch"/>
+                                <connections>
+                                    <action selector="switchLanguage:" destination="2EO-2W-zzv" eventType="touchUpInside" id="Qjc-Uu-Yj4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dXd-bz-NP5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Traducteur" image="globe" catalog="system" id="JdJ-v2-GIW"/>
+                    <connections>
+                        <outlet property="firstLabel" destination="N7T-d5-n4t" id="PeI-0u-yRo"/>
+                        <outlet property="frTextfield" destination="RNy-UH-J7H" id="Yt2-Fq-GcZ"/>
+                        <outlet property="secondLabel" destination="xxi-C6-SHe" id="SC7-Hi-toJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NXS-ax-mXN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,10 +132,12 @@
                                 <color key="textColor" red="0.64330285787582397" green="0.15581667423248291" blue="0.092622958123683929" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1z-ja-jWz">
-                                <rect key="frame" x="101" y="368" width="188" height="108"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1z-ja-jWz">
+                                <rect key="frame" x="16" y="396" width="358" height="80"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="QZH-gy-r58"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
@@ -144,6 +160,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="z1z-ja-jWz" firstAttribute="leading" secondItem="GhZ-Fs-DUB" secondAttribute="leading" constant="16" id="2Po-Kt-3Fo"/>
+                            <constraint firstItem="z1z-ja-jWz" firstAttribute="centerX" secondItem="J0v-MT-wUA" secondAttribute="centerX" id="GGI-6v-K3e"/>
+                            <constraint firstItem="GhZ-Fs-DUB" firstAttribute="trailing" secondItem="z1z-ja-jWz" secondAttribute="trailing" constant="16" id="NFV-6h-HBR"/>
+                            <constraint firstItem="Rnd-X6-tKY" firstAttribute="top" secondItem="z1z-ja-jWz" secondAttribute="bottom" constant="185" id="kRR-A7-aY4"/>
                             <constraint firstItem="Rnd-X6-tKY" firstAttribute="centerX" secondItem="J0v-MT-wUA" secondAttribute="centerX" id="pOn-8a-4fw"/>
                             <constraint firstItem="Rnd-X6-tKY" firstAttribute="leading" secondItem="GhZ-Fs-DUB" secondAttribute="leading" constant="16" id="rCY-YV-6c0"/>
                             <constraint firstItem="GhZ-Fs-DUB" firstAttribute="trailing" secondItem="Rnd-X6-tKY" secondAttribute="trailing" constant="16" id="rgG-m3-gfS"/>
@@ -191,7 +211,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cloud.sun" catalog="system" width="128" height="93"/>
+        <image name="cloud.sun" catalog="system" width="128" height="95"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="globe" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
