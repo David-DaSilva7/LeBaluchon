@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TranslatorViewController: UIViewController {
+class TranslatorViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var firstTextfield: UITextField!
@@ -28,6 +28,11 @@ class TranslatorViewController: UIViewController {
             self.presentAlert(title: "Petit problème",
                               message: "Veuillez rentrer un texte valable avant de le traduire !")
         }
+    }
+    
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        firstTextfield.resignFirstResponder()
     }
     
     
@@ -87,4 +92,8 @@ class TranslatorViewController: UIViewController {
         translatedLabel.layer.borderColor = UIColor.black.cgColor
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        firstTextfield.resignFirstResponder()
+        return true
+    }
 }
