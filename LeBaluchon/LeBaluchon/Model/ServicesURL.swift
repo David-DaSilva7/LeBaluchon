@@ -7,6 +7,12 @@
 
 import Foundation
 
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+}
+
 // MARK: - Fixer
 class FixerExchangeRate {
     // MARK: - Properties
@@ -20,3 +26,19 @@ class FixerExchangeRate {
         return FixerExchangeRate.endpoint + FixerExchangeRate.parameters + FixerExchangeRate.accessKey
     }
 }
+
+
+// MARK: - Google Translation
+
+class GoogleTranslation {
+    // MARK: - Properties
+    static private let endpoint = "https://translation.googleapis.com/language/translate/v2"
+    static private let accessKey = "?key=\(APIKeys.GoogleTranslation)"
+    static private var parameters: String {
+        return "&source=\(Languages.sourceLanguageCodeISO)&target=\(Languages.targetLanguageCodeISO)&format=text&q="
+    }
+    static var url: String {
+        return GoogleTranslation.endpoint + GoogleTranslation.accessKey + GoogleTranslation.parameters
+    }
+}
+

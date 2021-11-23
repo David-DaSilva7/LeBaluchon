@@ -9,52 +9,82 @@ import UIKit
 
 class TranslatorViewController: UIViewController {
     
-    @IBOutlet weak var frTextfield: UITextField!
-    private var sourceLanguage = "fr"
-    private var targetLanguage = "en"
-    
+    // MARK: - Outlets
+    @IBOutlet weak var firstTextfield: UITextField!
     @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var translatedLabel: UITextView!
     @IBOutlet weak var secondLabel: UILabel!
     
-    @IBAction func switchLanguage(_ sender: Any) {
+    // MARK: - Actions
+    @IBAction func switchLanguage(_ sender: UIButton) {
         switchLanguage()
     }
+    
+    @IBAction func translate(_ sender: UIButton) {
+        
+        if let textToTranslate = firstTextfield.text, !textToTranslate.isEmpty {
+            translation(with: textToTranslate)
+        } else {
+            self.presentAlert(title: "Petit problème",
+                              message: "Veuillez rentrer un texte valable avant de le traduire !")
+        }
+    }
+    
+    
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textFieldConfig()
-        
-        // Do any additional setup after loading the view.
+        self.labelConfig()
     }
     
-    private func textFieldConfig() {
-        frTextfield.textAlignment = .left
-        frTextfield.contentVerticalAlignment = .top
+    
+    private func translation(with textToTranslate: String) {
+        TranslatorService.shared.getTranslation(with: textToTranslate) { [weak self] success, translatedText in
+            guard let self = self else { return }
+            
+            if success, let translatedText = translatedText {
+                self.update(translationText: translatedText)
+            } else {
+                self.presentAlert(title: "Petit problème",
+                                  message: "Google traduction n'a pas répondu.\nVeuillez réessayer.")
+            }
+        }
     }
+    
+    
+    private func update(translationText: String) {
+        translatedLabel.text = translationText
+    }
+    
     
     func switchLanguage(){
-        if sourceLanguage == "fr" {
-            sourceLanguage = "en"
+        if Languages.sourceLanguageCodeISO == "fr" {
+            Languages.sourceLanguageCodeISO = "en"
+            Languages.targetLanguageCodeISO = "fr"
             self.firstLabel.text = "Anglais"
             self.secondLabel.text = "Français"
             
         } else {
-            sourceLanguage = "fr"
+            Languages.sourceLanguageCodeISO = "fr"
+            Languages.targetLanguageCodeISO = "en"
             self.firstLabel.text = "Français"
             self.secondLabel.text = "Anglais"
             
         }
     }
     
+    // MARK: - Functions Config
     
+    private func textFieldConfig() {
+        firstTextfield.textAlignment = .left
+        firstTextfield.contentVerticalAlignment = .top
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    private func labelConfig(){
+        translatedLabel.textAlignment = .left
+        translatedLabel.layer.borderWidth = 1.0
+        translatedLabel.layer.borderColor = UIColor.black.cgColor
+    }
     
 }
