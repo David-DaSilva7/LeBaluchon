@@ -21,7 +21,7 @@ class FixerExchangeRate {
         return "?symbols=USD"
     }
     static private let accessKey = "&access_key=\(APIKeys.fixerExchangeRate)"
-
+    
     static var url: String {
         return FixerExchangeRate.endpoint + FixerExchangeRate.parameters + FixerExchangeRate.accessKey
     }
@@ -39,6 +39,18 @@ class GoogleTranslation {
     }
     static var url: String {
         return GoogleTranslation.endpoint + GoogleTranslation.accessKey + GoogleTranslation.parameters
+    }
+}
+
+class OpenWeather {
+    static private let endpoint = "http://api.openweathermap.org/data/2.5/weather"
+    static private let accessKey = "&appid=\(APIKeys.OpenWeatherMap)"
+    static private var parameters: String {
+        return "?id=\(city)&lang=fr"
+    }
+    static var city = ""
+    static var url: String {
+        return OpenWeather.endpoint + OpenWeather.accessKey + OpenWeather.parameters
     }
 }
 
