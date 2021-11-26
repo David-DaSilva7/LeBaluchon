@@ -14,6 +14,8 @@ class TranslatorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstLabel: UILabel!
     @IBOutlet weak var translatedLabel: UITextView!
     @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var buttonTranslate: UIButton!
     
     // MARK: - Actions
     @IBAction func switchLanguage(_ sender: UIButton) {
@@ -41,13 +43,15 @@ class TranslatorViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.textFieldConfig()
         self.labelConfig()
+        toogleActivityIndicator(show: true)
     }
     
     
     private func translation(with textToTranslate: String) {
+        toogleActivityIndicator(show: false)
         TranslatorService.shared.getTranslation(with: textToTranslate) { [weak self] success, translatedText in
             guard let self = self else { return }
-            
+            self.toogleActivityIndicator(show: true)
             if success, let translatedText = translatedText {
                 self.update(translationText: translatedText)
             } else {
@@ -95,5 +99,10 @@ class TranslatorViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         firstTextfield.resignFirstResponder()
         return true
+    }
+    
+    private func toogleActivityIndicator(show: Bool){
+        activityIndicator.isHidden = show
+        buttonTranslate.isHidden = !show
     }
 }
