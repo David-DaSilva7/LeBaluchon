@@ -6,7 +6,7 @@
 //
 
 
-
+// MARK: - Translate
 struct Translate: Codable {
     let data: Translations
     struct Translations: Codable {
@@ -18,8 +18,8 @@ struct Translate: Codable {
     }
 }
 
+// MARK: - Languages
 struct Languages {
-    // MARK: - Properties
     static var sourceLanguageCodeISO = "fr"
     static var targetLanguageCodeISO = "en"
 }
