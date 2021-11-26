@@ -29,7 +29,6 @@ class FixerExchangeRate {
 
 
 // MARK: - Google Translation
-
 class GoogleTranslation {
     // MARK: - Properties
     static private let endpoint = "https://translation.googleapis.com/language/translate/v2"
@@ -42,11 +41,13 @@ class GoogleTranslation {
     }
 }
 
+// MARK: - Open Weather
 class OpenWeather {
-    static private let endpoint = "http://api.openweathermap.org/data/2.5/weather"
+    // MARK: - Properties
+    static private let endpoint = "https://api.openweathermap.org/data/2.5/weather"
     static private let accessKey = "&appid=\(APIKeys.OpenWeatherMap)"
     static private var parameters: String {
-        return "?id=\(city)&lang=fr"
+        return "?units=metric&id=\(city)&lang=fr"
     }
     static var city = ""
     static var url: String {
