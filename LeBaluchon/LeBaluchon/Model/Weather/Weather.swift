@@ -16,32 +16,25 @@ struct EntireWeather: Codable {
 
 // MARK: - Main
 struct Main: Codable {
-    let temp, feelsLike, tempMin, tempMax: Double
-    let pressure, humidity: Int
-
+    let temp: Double
+    let feels_like: Double
+    
     enum CodingKeys: String, CodingKey {
         case temp
-        case feelsLike = "feels_like"
-        case tempMin = "temp_min"
-        case tempMax = "temp_max"
-        case pressure, humidity
+        case feels_like
     }
 }
 
 // MARK: - Weather
 struct Weather: Codable {
-    let weatherId: Int
-    let main, weatherDescription, icon: String
-
+    let description: String
+    
     enum CodingKeys: String, CodingKey {
-        case weatherId = "id"
-        case main
-        case weatherDescription = "description"
-        case icon
+        case description
     }
 }
 
 enum Cities: String {
-    case metz = "2988507"
+    case metz = "2992402"
     case newYork = "5128581"
 }
