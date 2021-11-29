@@ -19,12 +19,6 @@ class WeatherViewController: UIViewController {
     
     // MARK: - Functions
     
-    //    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        callWeatherService(for: .paris)
-//
-//    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         callWeatherService(for: .metz)
@@ -34,17 +28,17 @@ class WeatherViewController: UIViewController {
     private func callWeatherService(for city: Cities) {
         WeatherService.shared.getWeather(for: city) { [weak self] success, weather in
             guard let self = self else { return }
-
+            
             if success, let weather = weather {
                 if city == .metz {
-                    self.metzDescriptionLabel.text = weather.weather[0].weatherDescription.capitalizingFirstLetter()
+                    self.metzDescriptionLabel.text = weather.weather[0].description.capitalizingFirstLetter()
                     self.metzTemperatureLabel.text = "\(Int(weather.main.temp))°C"
-                    self.metzHumidityLabel.text = "Humidité : \(weather.main.humidity)%"
+                    self.metzHumidityLabel.text = "\(weather.main.feels_like)°C"
                     self.callWeatherService(for: .newYork)
                 } else {
-                    self.newYorkDescriptionLabel.text = weather.weather[0].weatherDescription.capitalizingFirstLetter()
+                    self.newYorkDescriptionLabel.text = weather.weather[0].description.capitalizingFirstLetter()
                     self.newYorkTemperatureLabel.text = "\(Int(weather.main.temp))°C"
-                    self.newYorkHumidityLabel.text = "Humidité : \(weather.main.humidity)%"
+                    self.newYorkHumidityLabel.text = "\(weather.main.feels_like)°C"
                 }
             } else {
                 self.presentAlert(title: "Petit problème",
