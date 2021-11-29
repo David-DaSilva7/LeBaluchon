@@ -9,7 +9,7 @@ import Foundation
 
 class ExchangeRateService {
     
-
+    
     
     // MARK: - Properties
     static let shared = ExchangeRateService()
@@ -32,9 +32,9 @@ class ExchangeRateService {
                       error == nil,
                       let response = response as? HTTPURLResponse,
                       response.statusCode == 200 else {
-                    callback(false, nil)
-                    return
-                }
+                          callback(false, nil)
+                          return
+                      }
                 
                 guard let responseJSON = try? JSONDecoder().decode(ExchangeRate.self, from: data) else {
                     callback(false, nil)

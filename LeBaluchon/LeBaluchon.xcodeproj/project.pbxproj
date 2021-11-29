@@ -27,6 +27,7 @@
 		C8B0B2AD2726A9F0004B5EC6 /* ServicesURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0B2AC2726A9F0004B5EC6 /* ServicesURL.swift */; };
 		C8B0B2B32727104D004B5EC6 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B0B2B22727104D004B5EC6 /* Alert.swift */; };
 		C8B3988126CD24010009D520 /* ExchangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B3988026CD24010009D520 /* ExchangeRateService.swift */; };
+		C8CF37082754CBBD00137619 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CF37072754CBBD00137619 /* Indicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		C8B0B2AC2726A9F0004B5EC6 /* ServicesURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesURL.swift; sourceTree = "<group>"; };
 		C8B0B2B22727104D004B5EC6 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C8B3988026CD24010009D520 /* ExchangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateService.swift; sourceTree = "<group>"; };
+		C8CF37072754CBBD00137619 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		C81C75B626A073A80068A906 /* LeBaluchon */ = {
 			isa = PBXGroup;
 			children = (
+				C8CF37062754CB9300137619 /* Tool */,
 				C8B0B2B127271030004B5EC6 /* Extension */,
 				C81C75CF26A074A40068A906 /* Supporting files */,
 				C81C75CE26A0749A0068A906 /* Model */,
@@ -226,6 +229,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		C8CF37062754CB9300137619 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				C8CF37072754CBBD00137619 /* Indicator.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -339,6 +350,7 @@
 				C8B0B2A8271D7366004B5EC6 /* ExchangeRate.swift in Sources */,
 				C81C75E226A1721F0068A906 /* TranslatorViewController.swift in Sources */,
 				C894FD16274E6E850098B6FD /* WeatherService.swift in Sources */,
+				C8CF37082754CBBD00137619 /* Indicator.swift in Sources */,
 				C894FD1B274FA0380098B6FD /* Capitalize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

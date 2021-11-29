@@ -21,7 +21,6 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate{
     @IBAction func convertir(_ sender: Any) {
         if let amountToExchange = textFieldEuro.text, !amountToExchange.isEmpty {
             callExchangeRateService(amount: Decimal(string: amountToExchange)!)
-            activityIndicator.isHidden = true
         } else {
             self.presentAlert(title: "Petit problème",
                               message: "Veuillez rentrer un montant valable avant de le convertir !")
@@ -38,22 +37,30 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate{
         labelUSD.layer.borderColor = UIColor.black.cgColor
         buttonConvertir.layer.cornerRadius = 30
         labelUSD.layer.cornerRadius = 30
-        toogleActivityIndicator(show: true)
+        toogleActivityIndicator(activityIndicator: self.activityIndicator,
+                                button: self.buttonConvertir,
+                                showActivityIndicator: false)
         
     }
     
     
     func callExchangeRateService(amount: Decimal) {
-        toogleActivityIndicator(show: false)
-        ExchangeRateService.shared.getExchangeRate { [weak self] success, exchangeRate in
-            guard let self = self else { return }
-            self.toogleActivityIndicator(show: true)
-            if success, let exchangeRate = exchangeRate {
-                self.labelUSD.text = "\(Rates.getUSDAmount(fromEuro: amount, withRate: exchangeRate.rates.usd))$"
-                
-            } else {
-                self.presentAlert(title: "Petit problème",
-                                  message: "Fixer n'a pas pu récupérer le taux de change.\nVeuillez réessayer.")
+        toogleActivityIndicator(activityIndicator: self.activityIndicator,
+                                button: self.buttonConvertir,
+                                showActivityIndicator: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            ExchangeRateService.shared.getExchangeRate { [weak self] success, exchangeRate in
+                guard let self = self else { return }
+                toogleActivityIndicator(activityIndicator: self.activityIndicator,
+                                        button: self.buttonConvertir,
+                                        showActivityIndicator: false)
+                if success, let exchangeRate = exchangeRate {
+                    self.labelUSD.text = "\(Rates.getUSDAmount(fromEuro: amount, withRate: exchangeRate.rates.usd))$"
+                    
+                } else {
+                    self.presentAlert(title: "Petit problème",
+                                      message: "Fixer n'a pas pu récupérer le taux de change.\nVeuillez réessayer.")
+                }
             }
         }
     }
@@ -69,12 +76,6 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
-    
-    func toogleActivityIndicator(show: Bool){
-        activityIndicator.isHidden = show
-        buttonConvertir.isHidden = !show
-    }
-    
 }
 
 

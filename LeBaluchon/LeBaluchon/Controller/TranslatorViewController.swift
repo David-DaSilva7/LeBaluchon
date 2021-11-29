@@ -10,7 +10,7 @@ import UIKit
 class TranslatorViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
-    @IBOutlet weak var firstTextfield: UITextField!
+    @IBOutlet weak var textToTranslate: UITextView!
     @IBOutlet weak var firstLabel: UILabel!
     @IBOutlet weak var translatedLabel: UITextView!
     @IBOutlet weak var secondLabel: UILabel!
@@ -24,7 +24,7 @@ class TranslatorViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func translate(_ sender: UIButton) {
         
-        if let textToTranslate = firstTextfield.text, !textToTranslate.isEmpty {
+        if let textToTranslate = textToTranslate.text, !textToTranslate.isEmpty {
             translation(with: textToTranslate)
         } else {
             self.presentAlert(title: "Petit problème",
@@ -34,29 +34,38 @@ class TranslatorViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func dismissKeyboard(_ sender: Any) {
-        firstTextfield.resignFirstResponder()
+        textToTranslate.resignFirstResponder()
     }
     
     
     // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.textFieldConfig()
+        textToTranslate.text = "Entrez du texte"
         self.labelConfig()
-        toogleActivityIndicator(show: true)
+        self.textToTranslateTextView()
+        toogleActivityIndicator(activityIndicator: self.activityIndicator,
+                                button: self.buttonTranslate,
+                                showActivityIndicator: false)
     }
     
     
     private func translation(with textToTranslate: String) {
-        toogleActivityIndicator(show: false)
-        TranslatorService.shared.getTranslation(with: textToTranslate) { [weak self] success, translatedText in
-            guard let self = self else { return }
-            self.toogleActivityIndicator(show: true)
-            if success, let translatedText = translatedText {
-                self.update(translationText: translatedText)
-            } else {
-                self.presentAlert(title: "Petit problème",
-                                  message: "Google traduction n'a pas répondu.\nVeuillez réessayer.")
+        toogleActivityIndicator(activityIndicator: self.activityIndicator,
+                                button: self.buttonTranslate,
+                                showActivityIndicator: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            TranslatorService.shared.getTranslation(with: textToTranslate) { [weak self] success, translatedText in
+                guard let self = self else { return }
+                toogleActivityIndicator(activityIndicator: self.activityIndicator,
+                                        button: self.buttonTranslate,
+                                        showActivityIndicator: false)
+                if success, let translatedText = translatedText {
+                    self.update(translationText: translatedText)
+                } else {
+                    self.presentAlert(title: "Petit problème",
+                                      message: "Google traduction n'a pas répondu.\nVeuillez réessayer.")
+                }
             }
         }
     }
@@ -84,25 +93,15 @@ class TranslatorViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Functions Config
-    
-    private func textFieldConfig() {
-        firstTextfield.textAlignment = .left
-        firstTextfield.contentVerticalAlignment = .top
-    }
-    
     private func labelConfig(){
         translatedLabel.textAlignment = .left
         translatedLabel.layer.borderWidth = 1.0
         translatedLabel.layer.borderColor = UIColor.black.cgColor
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        firstTextfield.resignFirstResponder()
-        return true
-    }
-    
-    private func toogleActivityIndicator(show: Bool){
-        activityIndicator.isHidden = show
-        buttonTranslate.isHidden = !show
+    private func textToTranslateTextView(){
+        textToTranslate.textAlignment = .left
+        textToTranslate.layer.borderWidth = 1.0
+        textToTranslate.layer.borderColor = UIColor.black.cgColor
     }
 }
