@@ -15,6 +15,7 @@
 		C81C75E526A1722C0068A906 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C75E426A1722C0068A906 /* WeatherViewController.swift */; };
 		C8600C3D272AB21A00635536 /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8600C3C272AB21A00635536 /* Translator.swift */; };
 		C8600C40272AB23000635536 /* TranslatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8600C3F272AB23000635536 /* TranslatorService.swift */; };
+		C893794A27552A3D00ED33EF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C893794927552A3D00ED33EF /* Launch Screen.storyboard */; };
 		C894FD14274E6B940098B6FD /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C894FD13274E6B940098B6FD /* Weather.swift */; };
 		C894FD16274E6E850098B6FD /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C894FD15274E6E850098B6FD /* WeatherService.swift */; };
 		C894FD1B274FA0380098B6FD /* Capitalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C894FD1A274FA0380098B6FD /* Capitalize.swift */; };
@@ -51,6 +52,7 @@
 		C81C75E426A1722C0068A906 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		C8600C3C272AB21A00635536 /* Translator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
 		C8600C3F272AB23000635536 /* TranslatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorService.swift; sourceTree = "<group>"; };
+		C893794927552A3D00ED33EF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C894FD13274E6B940098B6FD /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C894FD15274E6E850098B6FD /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		C894FD1A274FA0380098B6FD /* Capitalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capitalize.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				C81C75BD26A073A80068A906 /* Main.storyboard */,
+				C893794927552A3D00ED33EF /* Launch Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C893794A27552A3D00ED33EF /* Launch Screen.storyboard in Resources */,
 				C81C75C126A073AA0068A906 /* Assets.xcassets in Resources */,
 				C81C75BF26A073A80068A906 /* Main.storyboard in Resources */,
 			);

@@ -11,7 +11,6 @@ import Foundation
 struct EntireWeather: Codable {
     let weather: [Weather]
     let main: Main
-    let name: String
 }
 
 // MARK: - Main
@@ -34,6 +33,7 @@ struct Weather: Codable {
     }
 }
 
+// MARK: - City
 enum Cities: String {
     case metz = "2992402"
     case newYork = "5128581"
