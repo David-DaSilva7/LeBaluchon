@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 func toogleActivityIndicator(activityIndicator: UIActivityIndicatorView, button: UIButton, showActivityIndicator: Bool){
     activityIndicator.isHidden = !showActivityIndicator
     button.isHidden = showActivityIndicator

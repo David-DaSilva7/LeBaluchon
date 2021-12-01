@@ -9,13 +9,13 @@
 // MARK: - Translate
 struct Translate: Codable {
     let data: Translations
-    struct Translations: Codable {
-        var translations: [TranslatedText]
-        // swiftlint:disable nesting
-        struct TranslatedText: Codable {
-            var translatedText: String
-        }
-    }
+}
+struct Translations: Codable {
+    var translations: [TranslatedText]
+}
+
+struct TranslatedText: Codable {
+    var translatedText: String
 }
 
 // MARK: - Languages

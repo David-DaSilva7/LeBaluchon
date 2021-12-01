@@ -48,7 +48,7 @@ class OpenWeather {
     static private let accessKey = "&appid=\(APIKeys.OpenWeatherMap)"
     static private var parameters: String {
         return "?units=metric&id=\(city)&lang=fr"
-
+        
     }
     static var city = ""
     static var url: String {

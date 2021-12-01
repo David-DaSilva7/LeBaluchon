@@ -82,13 +82,17 @@ class TranslatorViewController: UIViewController, UITextFieldDelegate {
             Languages.targetLanguageCodeISO = "fr"
             self.firstLabel.text = "Anglais"
             self.secondLabel.text = "Français"
-            
+            if textToTranslate.text == "" || textToTranslate.text == "Entrez du texte" {
+                textToTranslate.text = "Enter text"
+            }
         } else {
             Languages.sourceLanguageCodeISO = "fr"
             Languages.targetLanguageCodeISO = "en"
             self.firstLabel.text = "Français"
             self.secondLabel.text = "Anglais"
-            
+            if textToTranslate.text == "" || textToTranslate.text == "Enter text" {
+                textToTranslate.text = "Entrez du texte"
+            }
         }
     }
     

@@ -2,11 +2,11 @@
 //  WeatherServiceTest.swift
 //  LeBaluchonTests
 //
-//  Created by David Da Silva on 25/11/2021.
+//  Created by David Da Silva on 30/11/2021.
 //
 
-import XCTest
 @testable import LeBaluchon
+import XCTest
 
 class WeatherServiceTest: XCTestCase {
 
@@ -100,14 +100,14 @@ class WeatherServiceTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         weatherService.getWeather(for: .newYork) { success, entireWeather in
             //Then
-            let city = "New York"
-            let description = "overcast clouds"
-            let temp = 17.85
+            let description = "clear sky"
+            let temp = 282.55
+            let feels_like = 281.86
 
             XCTAssertTrue(success)
             XCTAssertNotNil(entireWeather)
-            XCTAssertEqual(city, entireWeather?.name)
-            XCTAssertEqual(description, entireWeather?.weather[0].weatherDescription)
+            XCTAssertEqual(feels_like, entireWeather?.main.feels_like)
+            XCTAssertEqual(description, entireWeather?.weather[0].description)
             XCTAssertEqual(temp, entireWeather?.main.temp)
 
             expectation.fulfill()
@@ -117,3 +117,4 @@ class WeatherServiceTest: XCTestCase {
     }
 
 }
+

@@ -2,23 +2,18 @@
 //  ExchangeRateServiceTest.swift
 //  LeBaluchonTests
 //
-//  Created by David Da Silva on 25/11/2021.
+//  Created by David Da Silva on 30/11/2021.
 //
 
-import XCTest
 @testable import LeBaluchon
+import XCTest
 
-class ExchangeRateServiceTest: XCTestCase {
+class ExchangeRateServiceTestCase: XCTestCase {
     
-    // ETANT DONNÉ QUE
-    // QUAND
-    // ALORS
-
+//    Si un erreur a été reçu
     func testGetExchangeRateShouldPostFailedCallbackIfError() {
         // Given
-        let exchangeRateService = ExchangeRateService(exchangeRateSession: URLSessionFake(data: nil,
-                                                                           response: nil,
-                                                                           error: FakeResponseData.error)
+        let exchangeRateService = ExchangeRateService(exchangeRateSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
         )
 
         // When
@@ -33,11 +28,10 @@ class ExchangeRateServiceTest: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
+    //    Si aucune donné a été reçu
     func testGetExchangeRateShouldPostFailedCallbackIfNoData() {
         // Given
-        let exchangeRateService = ExchangeRateService(exchangeRateSession: URLSessionFake(data: nil,
-                                                                           response: nil,
-                                                                           error: nil)
+        let exchangeRateService = ExchangeRateService(exchangeRateSession: URLSessionFake(data: nil, response: nil, error: nil)
         )
 
         // When
@@ -52,12 +46,10 @@ class ExchangeRateServiceTest: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
+//    Si j'ai des donné, pas d'erreur mais reponse incorrect
     func testGetExchangeRateShouldPostFailedCallbackIfIncorrectResponse() {
         // Given
-        let exchangeRateService = ExchangeRateService(exchangeRateSession: URLSessionFake(
-            data: FakeResponseData.exchangeRateCorrectData,
-            response: FakeResponseData.responseKO,
-            error: nil)
+        let exchangeRateService = ExchangeRateService(exchangeRateSession: URLSessionFake(data: FakeResponseData.exchangeRateCorrectData, response: FakeResponseData.responseKO, error: nil)
         )
 
         // When
@@ -72,12 +64,10 @@ class ExchangeRateServiceTest: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
+    //    Si j'ai des donné mais incoorect et  reponse correct
     func testGetExchangeRateShouldPostFailedCallbackIfIncorrectData() {
           // Given
-          let exchangeRateService = ExchangeRateService(exchangeRateSession: URLSessionFake(
-            data: FakeResponseData.incorrectData,
-            response: FakeResponseData.responseOK,
-            error: nil)
+          let exchangeRateService = ExchangeRateService(exchangeRateSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
           )
 
           // When
@@ -91,12 +81,11 @@ class ExchangeRateServiceTest: XCTestCase {
 
           wait(for: [expectation], timeout: 0.01)
       }
-
+    
+    //    Si j'ai des donné correct,reponse correct et pas d'erreur 
     func testGetExchangeRateShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
         // Given
-        let exchangeRateService = ExchangeRateService(exchangeRateSession: URLSessionFake(
-            data: FakeResponseData.exchangeRateCorrectData,
-            response: FakeResponseData.responseOK,
+        let exchangeRateService = ExchangeRateService(exchangeRateSession: URLSessionFake(data: FakeResponseData.exchangeRateCorrectData, response: FakeResponseData.responseOK,
             error: nil)
         )
 
@@ -115,6 +104,5 @@ class ExchangeRateServiceTest: XCTestCase {
 
         wait(for: [expectation], timeout: 0.01)
     }
-
 
 }
