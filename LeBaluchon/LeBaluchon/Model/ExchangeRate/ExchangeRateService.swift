@@ -9,24 +9,26 @@ import Foundation
 
 class ExchangeRateService {
     
-    
-    
     // MARK: - Properties
     static let shared = ExchangeRateService()
     private init() {}
     private var task: URLSessionDataTask?
     
+    private var exchangeRateSession = URLSession(configuration: .default)
+    init(exchangeRateSession: URLSession) {
+        self.exchangeRateSession = exchangeRateSession
+    }
+    
     // MARK: - Function
     func getExchangeRate(callback: @escaping (Bool, ExchangeRate?) -> Void) {
-        let session = URLSession(configuration: .default)
-        
+   
         guard let url = URL(string: FixerExchangeRate.url) else {
             callback(false, nil)
             return
         }
         
         task?.cancel()
-        task = session.dataTask(with: url) { data, response, error in
+        task = exchangeRateSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 guard let data = data,
                       error == nil,
