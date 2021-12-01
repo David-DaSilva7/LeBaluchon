@@ -12,9 +12,6 @@ import Foundation
 // Reflect the Fixer exchange rate API response body JSON structure to decode Fixer response
 // MARK: - ExchangeRate
 struct ExchangeRate: Codable {
-    let success: Bool
-    let timestamp: Int
-    let base, date: String
     let rates: Rates
 }
 
