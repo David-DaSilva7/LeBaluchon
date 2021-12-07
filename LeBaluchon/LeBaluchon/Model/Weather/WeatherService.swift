@@ -20,7 +20,7 @@ class WeatherService {
     
     // MARK: - Function
     func getWeather(for city: Cities, callback: @escaping (Bool, EntireWeather?) -> Void) {
-        OpenWeather.city = city.rawValue 
+        OpenWeather.city = city.rawValue
         var request = URLRequest(url: URL(string: OpenWeather.url)!)
         request.httpMethod = HTTPMethod.get.rawValue
         

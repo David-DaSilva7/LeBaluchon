@@ -21,7 +21,7 @@ class ExchangeRateService {
     
     // MARK: - Function
     func getExchangeRate(callback: @escaping (Bool, ExchangeRate?) -> Void) {
-   
+        
         guard let url = URL(string: FixerExchangeRate.url) else {
             callback(false, nil)
             return

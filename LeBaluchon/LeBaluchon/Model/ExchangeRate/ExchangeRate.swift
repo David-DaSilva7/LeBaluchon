@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-
-// Reflect the Fixer exchange rate API response body JSON structure to decode Fixer response
 // MARK: - ExchangeRate
 struct ExchangeRate: Codable {
     let rates: Rates
@@ -24,7 +21,7 @@ struct Rates: Codable {
     }
     
     static func getUSDAmount(fromEuro amount: Decimal, withRate usd: Decimal) -> Decimal {
-        var amountInUSD = amount * usd 
+        var amountInUSD = amount * usd
         var amountInUSDrounded: Decimal = Decimal()
         NSDecimalRound(&amountInUSDrounded, &amountInUSD, 2, .plain)
         return amountInUSDrounded

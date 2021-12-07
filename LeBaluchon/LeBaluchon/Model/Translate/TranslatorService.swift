@@ -14,7 +14,6 @@ class TranslatorService {
     private init() {}
     private var task: URLSessionDataTask?
     
-    
     private var translateSession = URLSession(configuration: .default)
     init(translateSession: URLSession) {
         self.translateSession = translateSession
