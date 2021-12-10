@@ -22,7 +22,7 @@ class WeatherService {
     func getWeather(for city: Cities, callback: @escaping (Bool, EntireWeather?) -> Void) {
         OpenWeather.city = city.rawValue
         var request = URLRequest(url: URL(string: OpenWeather.url)!)
-        request.httpMethod = HTTPMethod.get.rawValue
+        request.httpMethod = HTTPMethod.post.rawValue
         
         task?.cancel()
         task = weatherSession.dataTask(with: request) { data, response, error in // dependency injection

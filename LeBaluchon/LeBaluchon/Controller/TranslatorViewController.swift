@@ -76,7 +76,7 @@ class TranslatorViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func switchLanguage(){
+    private func switchLanguage(){
         if Languages.sourceLanguageCodeISO == "fr" {
             Languages.sourceLanguageCodeISO = "en"
             Languages.targetLanguageCodeISO = "fr"

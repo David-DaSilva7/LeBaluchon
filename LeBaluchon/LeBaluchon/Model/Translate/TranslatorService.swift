@@ -28,7 +28,7 @@ class TranslatorService {
         request.httpMethod = HTTPMethod.post.rawValue
         
         task?.cancel()
-        task = translateSession.dataTask(with: request) { data, response, error in // dependency injection
+        task = translateSession.dataTask(with: request) { data, response, error in 
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)

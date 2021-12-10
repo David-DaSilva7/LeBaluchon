@@ -44,7 +44,7 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate{
     }
     
     
-    func callExchangeRateService(amount: Decimal) {
+    private func callExchangeRateService(amount: Decimal) {
         toogleActivityIndicator(activityIndicator: self.activityIndicator,
                                 button: self.buttonConvertir,
                                 showActivityIndicator: true)
