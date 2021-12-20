@@ -25,7 +25,7 @@ class WeatherService {
         request.httpMethod = HTTPMethod.post.rawValue
         
         task?.cancel()
-        task = weatherSession.dataTask(with: request) { data, response, error in // dependency injection
+        task = weatherSession.dataTask(with: request) { data, response, error in 
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)
