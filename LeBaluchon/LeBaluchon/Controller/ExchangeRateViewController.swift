@@ -71,11 +71,6 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate{
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         textFieldEuro.resignFirstResponder()
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
 }
 
 
