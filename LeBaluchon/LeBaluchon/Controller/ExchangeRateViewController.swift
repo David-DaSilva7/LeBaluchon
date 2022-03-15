@@ -31,7 +31,7 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate{
     
     // MARK: - Functions
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         labelUSD.layer.borderWidth = 1.0
         labelUSD.layer.borderColor = UIColor.black.cgColor
